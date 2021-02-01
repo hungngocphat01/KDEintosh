@@ -9,6 +9,7 @@ Last updated: February 2020, Plasma 5.20.5.
 ## Disclaimer
 - I don't personally own the themes included here. They are all originally made and owned repspectively by their authors.
 - The package management commands I include here are specified to Arch Linux only (and its derivatives). You have to figure out what is it on your distro by yourself.
+- I am using 1.0 scale on a 1080p monitor. You may have to adjust the theme to suit yours.
 
 ## Components
 - **Plasma style**: WhiteSur-dark (edited, available in this repository).
@@ -82,3 +83,9 @@ Installation in Arch Linux can be done via yay:
     $ sudo pacman -Sy eog evince
     ```
 - Change default applications in System Settings to match those.
+
+### macOS fonts (if you somehow have access to a macOS machine).
+- Obtain the San Francisco fonts and install them. Then apply them in System Settings/Fonts. Imo 11 px looks better.
+
+### Plasma-specific settings.
+- Change the transparency and blur radius/noise in System Settings/Workspace Behaviour/Desktop Effects.
