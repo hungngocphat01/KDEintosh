@@ -31,8 +31,8 @@ Last updated: February 2020, Plasma 5.20.5.
 - Big Sur Inline Battery.
 
 ## Instructions
-1. Install the original WhiteSur theme as described in the [original repository](https://github.com/vinceliuice/WhiteSur-kde). You have to install WhiteSur-dark-gtk manually in the given link above.
-2. Go to `~/.local/share/aurorae/themes/` and delete the `WhiteSur-dark` folder. Extract the given zip in this repo to the same location. I edited this theme so that some transparent components' background (notifications, pop-up windows, ...) looks more comfortably.
+1. Install the original WhiteSur theme as described in the [original repository](https://github.com/vinceliuice/WhiteSur-kde). You have to install WhiteSur-dark-gtk manually in the given link above. Apply the `WhiteSur-dark` Plasma global theme, then head to Application Style/Configure GTK Application Style... and do the same thing to the GTK theme.
+2. Go to `~/.local/share/aurorae/themes/` and delete the `WhiteSur-dark` folder. Extract the given zip in this repo to the same location. I edited this theme to become a little bit darker so that some transparent components' background (notifications, pop-up windows, ...) looks more comfortably.
 3. Download and apply SierraBreezeEnhanced (window decoration). Please refer to the `WindowDeco.png` file for SierraBreezeEnhanced's configuration. This one looks and suits better in terms of color than the one provided in WhiteSur (but it feels more like Catalina).<br>
 Installation in Arch Linux can be done via yay:
     ```bash
@@ -70,19 +70,27 @@ Installation in Arch Linux can be done via yay:
 ### GNOME applications
 - I have to admit that KDE is more customizable, with fancy blur effects that can be altered to a kinda nearly authentic macOS experience. But their bundled applications cannot do so as good as their GNOME alternatives.
 - I will cover 3 applications that I use the most (file manager, document viewer, image viewer). You can apply the similar procedure for the others.
-- Uninstall dolphin and its dependencies (`dolphin-plugins` and `konqueror`):
+- Uninstall dolphin (file manager), gwenview (image viewer) and their dependencies:
     ```bash
-    $ sudo pacman -Rncs dolphin
+    $ sudo pacman -Rncs dolphin gwenview okular
     ```
-- Install ElementaryOS' file manager because it looks like macOS Finder more than anything else.
+- Install ElementaryOS' file manager because it looks like macOS Finder more than anything else, as well as the archive manager.
     ```bash
-    $ sudo pacman -Sy pantheon-files file-roller
+    $ sudo pacman -Sy pantheon-files
+    $ yay -S file-roller-pantheon
     ```
 - Install Eyes of GNOME (image viewer) and Evince (document viewer)
     ```
     $ sudo pacman -Sy eog evince
     ```
 - Change default applications in System Settings to match those.
+- Some Plasma application still calls their "friends" even after being removed. You'd better create some symlink to those to maintain compability:
+    ```bash
+    $ sudo ln -sf /usr/bin/io.elementary.files /usr/bin/dolphin
+    $ sudo ln -sf /usr/bib/eog /usr/bin/gwenview
+    $ sudo ln -sf /usr/bib/evince /usr/bin/okular
+    ...
+    ```
 
 ### macOS fonts (if you somehow have access to a macOS machine).
 - Obtain the San Francisco fonts and install them. Then apply them in System Settings/Fonts. Imo 11 px looks better.
